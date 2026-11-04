@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ForecastRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ForecastRepository::class)]
 class Forecast
@@ -83,14 +84,14 @@ class Forecast
         return $this;
     }
 
-    public function getCelsius(): ?int
+    public function getTemperature(): ?int
     {
         return $this->temperature;
     }
 
-    public function setCelsius(int $celsius): static
+    public function setTemperature(int $temperature): static
     {
-        $this->temperature = $celsius;
+        $this->temperature = $temperature;
 
         return $this;
     }

@@ -23,6 +23,7 @@ class Location
     private ?string $country = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 7)]
+
     private ?string $latitude = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 7)]

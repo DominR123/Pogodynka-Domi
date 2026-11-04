@@ -1,0 +1,16 @@
+App\Entity\Forecast:
+    properties:
+
+        pressure:
+            - Range:
+                  min: 850
+                  max: 1100
+                  notInRangeMessage: 'Pressure value should be between {{ min }} and {{ max }}.'
+                  groups: [Default, create]
+
+        temperature:
+            - Range:
+                  min: -100
+                  max: 70
+                  notInRangeMessage: 'Temperature value should be between {{ min }} and {{ max }}.'
+                  groups: [Default, create]
