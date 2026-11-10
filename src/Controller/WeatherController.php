@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class WeatherController extends AbstractController
 {
-    #[Route('/weather/{city}', name: 'app_weather')]
+    #[Route('/weather/{country}/{city}', name: 'app_weather')]
     public function city(Location $location, ForecastRepository $repository): Response
     {
         $forecast = $repository->findByLocation($location);
