@@ -28,8 +28,8 @@ class Forecast
     #[ORM\JoinColumn(nullable: false)]
     private ?Location $location = null;
 
-    #[ORM\Column]
-    private ?int $temperature = null;
+    #[ORM\Column(type: Types::FLOAT)]
+    private ?float $temperature = null;
 
     public function getId(): ?int
     {
@@ -84,15 +84,25 @@ class Forecast
         return $this;
     }
 
-    public function getTemperature(): ?int
+    public function getCelsius(): ?float
     {
         return $this->temperature;
     }
 
-    public function setTemperature(int $temperature): static
+    public function setTemperature(?float $temperature): static
     {
         $this->temperature = $temperature;
 
         return $this;
+    }
+
+    public function getFahrenheit(): float|int|null
+    {
+        $celsius = $this->getCelsius();
+        if ($this->temperature === null)
+        {
+            return null;
+        }
+        return ($celsius * 9/5) + 32;
     }
 }

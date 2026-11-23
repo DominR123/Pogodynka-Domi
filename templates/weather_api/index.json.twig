@@ -1,0 +1,5 @@
+{"city":{% if city is null %}null{% else %}"{{ city|replace({'\\': '\\\\', '"': '\\"', "\n": '\\n', "\r": '\\r', "\t": '\\t'})|raw }}"{% endif %},
+    "country":{% if country is null %}null{% else %}"{{ country|replace({'\\': '\\\\', '"': '\\"', "\n": '\\n', "\r": '\\r', "\t": '\\t'})|raw }}"{% endif %},
+    "measurements":[{% for m in measurements %}{"date":{% if m.date is null %}null{% else %}"{{ m.date|replace({'\\': '\\\\', '"': '\\"', "\n": '\\n', "\r": '\\r', "\t": '\\t'})|raw }}"{% endif %},
+        "celsius":{% if m.celsius is null %}null{% else %}{{ m.celsius|raw }}{% endif %},
+        "fahrenheit":{% if m.fahrenheit is null %}null{% else %}{{ m.fahrenheit|raw }}{% endif %} }{% if not loop.last %},{% endif %}{% endfor %}]}
